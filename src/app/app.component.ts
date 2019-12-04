@@ -49,6 +49,7 @@ export class AppComponent {
         this.appPages = data;
        }, error => {
         console.log(error);
+        this.appPages = [];
       });
   }
 }

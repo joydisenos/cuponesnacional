@@ -11,6 +11,26 @@
 
 <ion-content>
 
+  <div class="header">
+    <img src="/assets/img/banner.jpg" alt="">
+  </div>
+  
+  <ion-toolbar color="primary">
+
+    <ion-segment>
+  <ion-segment-button value="destacados" checked>
+    <ion-label>Destacados</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="nuevas">
+    <ion-label>Nuevas Ofertas</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="vendidas">
+    <ion-label>Más vendidas</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+  </ion-toolbar>
+
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let oferta of ofertas">

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage {
 
-	ofertas : any[];
+	ofertas : any;
 
   constructor(public httpClient: HttpClient) {
   	this.cargarOfertas();
@@ -21,6 +21,7 @@ export class HomePage {
         this.ofertas = data;
        }, error => {
         console.log(error);
+        this.ofertas = [];
       });
   }
 
