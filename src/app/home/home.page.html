@@ -12,19 +12,19 @@
 <ion-content>
 
   <div class="header">
-    <img src="/assets/img/banner.jpg" alt="">
+    <img src="./assets/img/banner.jpg" alt="">
   </div>
   
   <ion-toolbar color="primary">
 
     <ion-segment>
-  <ion-segment-button value="destacados" checked>
+  <ion-segment-button value="destacados" (click)="cambiarCategoria('playa')">
     <ion-label>Destacados</ion-label>
   </ion-segment-button>
-  <ion-segment-button value="nuevas">
+  <ion-segment-button value="nuevas" (click)="cambiarCategoria('gastronomia')">
     <ion-label>Nuevas Ofertas</ion-label>
   </ion-segment-button>
-  <ion-segment-button value="vendidas">
+  <ion-segment-button value="vendidas" (click)="cambiarCategoria('actividades')">
     <ion-label>Más vendidas</ion-label>
   </ion-segment-button>
 </ion-segment>
@@ -35,7 +35,7 @@
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let oferta of ofertas">
         <ion-card class="welcome-card">
-          <img src="/assets/shapes.svg" alt="" />
+          <img src="./assets/shapes.svg" alt="" />
           <ion-card-header>
             <ion-card-subtitle>${{ oferta.fprecio }}</ion-card-subtitle>
             <ion-card-title>{{ oferta.titulo }}</ion-card-title>

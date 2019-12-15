@@ -12,18 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  public appPages:any = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    }
-  ];
+  public appPages:any = [];
 
   constructor(
     private platform: Platform,
@@ -43,12 +32,11 @@ export class AppComponent {
   }
 
   cargarCategorias(){
-    return this.httpClient.get("http://cuponesar.com/public/api/categorias")
+    //return this.httpClient.get("https://cuponesar.com/public/api/categorias")
+    return this.httpClient.get("http://localhost/cuponesApi/public/api/categorias")
       .subscribe(data => {
-        console.log(data);
         this.appPages = data;
        }, error => {
-        console.log(error);
         this.appPages = [];
       });
   }
