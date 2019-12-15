@@ -34,7 +34,7 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" size-md="6" *ngFor="let oferta of ofertas">
-        <ion-card class="welcome-card">
+        <ion-card class="welcome-card" [routerDirection]="" [routerLink]="['/oferta' , oferta.id]">
           <img src="./assets/shapes.svg" alt="" />
           <ion-card-header>
             <ion-card-subtitle>${{ oferta.fprecio }}</ion-card-subtitle>

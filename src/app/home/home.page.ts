@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,14 @@ export class HomePage {
   limite = 50;
   categoria = null;
 
-  constructor(public httpClient: HttpClient) {
-  	this.cargarOfertas();
+  constructor(private route: ActivatedRoute , public httpClient: HttpClient) {
+  	
+  }
+
+  ngOnInit() {
+    this.categoria = this.route.snapshot.paramMap.get('categoria');
+    console.log(this.categoria);
+    this.cargarOfertas();
   }
 
   cambiarCategoria(categoria)

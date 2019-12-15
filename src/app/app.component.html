@@ -9,7 +9,7 @@
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'">
+            <ion-item [routerDirection]="'root'" [routerLink]="['/home' , p.link]">
               <ion-icon slot="start" [name]="p.material_icon"></ion-icon>
               <ion-label>
                 {{p.nombre}}
