@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
+<img src="./assets/shapes.svg" alt="" />
+<h3 color="primary">{{oferta.titulo}}</h3>
+<div class="detalle">{{ oferta.detalle }}</div>
+<div class="caracteristicas" [innerHTML]="oferta.caracteristicas"></div>
 
-<h3>{{oferta.titulo}}</h3>
 
 </ion-content>
