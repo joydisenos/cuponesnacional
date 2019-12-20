@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -13,15 +14,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   public appPages:any = [];
+  public segmento:string = 'categorias';
+  public user:any;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    public httpClient: HttpClient
+    public httpClient: HttpClient,
+    private storage: Storage
   ) {
     this.initializeApp();
     this.cargarCategorias();
+    this.verificarUsuario();
   }
 
   initializeApp() {
@@ -29,6 +34,23 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  verificarUsuario(){
+    //this.storage.remove('user');
+    //this.storage.set('user' , 'string');
+    this.storage.get('user').then((val) => {
+      if(val == null){
+        console.log('usuario no registrado');
+      }else{
+        console.log('Id de usuario ', val);
+      }
+    });
+  }
+
+  cambiarSegmento(nombre){
+    this.segmento = nombre.detail.value;
+    //console.log(nombre.detail.value);
   }
 
   cargarCategorias(){

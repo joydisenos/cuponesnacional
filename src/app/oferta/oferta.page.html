@@ -1,14 +1,54 @@
 <ion-header>
   <ion-toolbar color="primary">
+  	 <ion-buttons slot="start">
+      <ion-menu-button menu="categorias"></ion-menu-button>
+    </ion-buttons>
     <ion-title>Oferta {{oferta.titulo}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<img src="./assets/shapes.svg" alt="" />
-<h3 color="primary">{{oferta.titulo}}</h3>
-<div class="detalle">{{ oferta.detalle }}</div>
-<div class="caracteristicas" [innerHTML]="oferta.caracteristicas"></div>
-
+<div class="img-card">
+	<img src="./assets/shapes.svg" alt=""  />
+	<div class="divisor"></div>
+</div>
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{ oferta.detalle }}</ion-card-subtitle>
+    <ion-card-title>{{ oferta.titulo }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div class="caracteristicas" [innerHTML]="oferta.caracteristicas"></div>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>
+
+<ion-footer>
+	<ion-toolbar color="primary">
+     <ion-item>
+        <ion-label>Cantidad</ion-label>
+        <ion-select value="1" okText="Listo" cancelText="Cancelar" [(ngModel)]="cantidad">
+          <ion-select-option value="1" selected>1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="6">6</ion-select-option>
+          <ion-select-option value="7">7</ion-select-option>
+          <ion-select-option value="8">8</ion-select-option>
+          <ion-select-option value="9">9</ion-select-option>
+          <ion-select-option value="10">10</ion-select-option>
+          <ion-select-option value="11">11</ion-select-option>
+          <ion-select-option value="12">12</ion-select-option>
+          <ion-select-option value="13">13</ion-select-option>
+          <ion-select-option value="14">14</ion-select-option>
+          <ion-select-option value="15">15</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    	<ion-buttons slot="end">
+    		<ion-button color="success" fill="solid" shape="round" (click)="agregarCarrito()">Reservar ${{ oferta.rprecio * cantidad }}</ion-button>
+    	</ion-buttons>
+  	</ion-toolbar>
+</ion-footer>

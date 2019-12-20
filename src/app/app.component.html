@@ -1,24 +1,82 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+  <ion-split-pane contentId="main-content" when="xl">
+
+    <ion-menu contentId="main-content" type="overlay" menuId="categorias">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>Categorías</ion-title>
+          <ion-title>Menú</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <ion-list>
+
+        <img src="./assets/shapes.svg" alt="">
+        <ion-segment (ionChange)="cambiarSegmento($event)">
+          <ion-segment-button value="categorias" checked>
+            Categorias
+          </ion-segment-button>
+          <ion-segment-button value="perfil">
+            Perfil
+          </ion-segment-button>
+        </ion-segment>
+        <ion-list  *ngIf="segmento == 'categorias'">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="['/home' , p.link]">
-              <ion-icon slot="start" [name]="p.material_icon"></ion-icon>
-              <ion-label>
-                {{p.nombre}}
-              </ion-label>
-            </ion-item>
+
+        
+              <ion-item [routerDirection]="'root'" [routerLink]="['/home' , p.link]">
+                <ion-icon slot="start" [name]="p.material_icon"></ion-icon>
+                <ion-label>
+                  {{p.nombre}}
+                </ion-label>
+              </ion-item>
+        
+
           </ion-menu-toggle>
         </ion-list>
+
+        <ion-list *ngIf="segmento == 'perfil'">
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" [routerLink]="['/carrito']">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Carrito
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" [routerLink]="['/login']">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Iniciar Sesión
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Perfil
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Cerrar Sesión
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+        </ion-list>
+        
       </ion-content>
     </ion-menu>
+
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

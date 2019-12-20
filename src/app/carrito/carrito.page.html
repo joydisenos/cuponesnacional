@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  	<ion-buttons slot="start">
+      <ion-menu-button menu="categorias"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	
+	<ion-list *ngIf="carrito != null">
+	  <ion-item *ngFor="let item of carrito">
+	    <div>
+	    	<h3>{{item.oferta}}</h3>
+	    	<h6>cantidad: {{ item.cantidad }} precio: ${{ item.cantidad * item.reserva}}</h6>
+	    </div>
+	  </ion-item>
+	</ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="end">
+    		<ion-button color="primary" fill="solid" shape="round" (click)="eliminarCarrito()">Eliminar carrito</ion-button>
+    		<ion-button color="success" fill="solid" shape="round">Completar compra</ion-button>
+    	</ion-buttons>
+  </ion-toolbar>
+</ion-footer>
