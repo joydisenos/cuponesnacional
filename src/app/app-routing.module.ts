@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'carrito',
     loadChildren: () => import('./carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
 ];
 

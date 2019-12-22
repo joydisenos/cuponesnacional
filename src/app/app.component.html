@@ -15,7 +15,7 @@
             Categorias
           </ion-segment-button>
           <ion-segment-button value="perfil">
-            Perfil
+            Cuenta
           </ion-segment-button>
         </ion-segment>
         <ion-list  *ngIf="segmento == 'categorias'">
@@ -40,6 +40,15 @@
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
                   Carrito
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" [routerLink]="['/perfil']">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Perfil
                 </ion-label>
               </ion-item>
           </ion-menu-toggle>
