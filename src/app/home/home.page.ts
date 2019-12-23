@@ -10,7 +10,7 @@ import { VariablesService } from '../variables.service';
 })
 export class HomePage {
 
-	ofertas : any;
+	ofertas: any;
   limite = 50;
   categoria = null;
 
@@ -35,11 +35,7 @@ export class HomePage {
 
   cargarOfertas(){
     //obtener ofertas de la api
-    return this.httpClient.get(this.variables.ruta + "api/ofertas" , {
-      //variables opcionales
-      limit: this.limite,
-      categoria: this.categoria
-    })
+    return this.httpClient.get(this.variables.ruta + "api/ofertas?limit=" + this.limite + "&categoria=" + this.categoria)
       .subscribe(data => {
         //se asignan las ofertas a la variable
         this.ofertas = data;

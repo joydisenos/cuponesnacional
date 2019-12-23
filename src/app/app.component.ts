@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 
+import { VariablesService } from './variables.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -22,7 +24,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public httpClient: HttpClient,
-    private storage: Storage
+    private storage: Storage,
+    public variables: VariablesService
   ) {
     this.initializeApp();
     this.cargarCategorias();
@@ -54,8 +57,7 @@ export class AppComponent {
   }
 
   cargarCategorias(){
-    //return this.httpClient.get("https://cuponesar.com/public/api/categorias")
-    return this.httpClient.get("http://localhost/cuponesApi/public/api/categorias")
+    return this.httpClient.get(this.variables.ruta + "api/categorias")
       .subscribe(data => {
         this.appPages = data;
        }, error => {
