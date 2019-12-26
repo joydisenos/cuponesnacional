@@ -9,6 +9,8 @@ import { Storage } from '@ionic/storage';
 
 import { VariablesService } from './variables.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,6 +20,7 @@ export class AppComponent {
   public appPages:any = [];
   public segmento:string = 'categorias';
   public user:any;
+  
 
   constructor(
     private platform: Platform,
@@ -25,6 +28,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     public httpClient: HttpClient,
     private storage: Storage,
+    private router: Router,
     public variables: VariablesService
   ) {
     this.initializeApp();
@@ -42,18 +46,22 @@ export class AppComponent {
   verificarUsuario(){
     //this.storage.remove('user');
     //this.storage.set('user' , 'string');
-    this.storage.get('user').then((val) => {
-      if(val == null){
-        console.log('usuario no registrado');
-      }else{
-        console.log('Id de usuario ', val);
-      }
+      this.storage.get('userId').then((val) => {
+      //console.log(val);
+      this.variables.userId = val;
     });
   }
 
   cambiarSegmento(nombre){
     this.segmento = nombre.detail.value;
     //console.log(nombre.detail.value);
+  }
+
+  cerrarSesion()
+  {
+    this.storage.remove('userId');
+    this.variables.userId = null;
+    this.router.navigate(['/home']);
   }
 
   cargarCategorias(){

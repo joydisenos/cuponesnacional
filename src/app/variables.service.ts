@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class VariablesService {
-	//public ruta:string = "http://localhost/cuponesApi/public/";
-	public ruta:string = "https://cuponesar.com/public/";
+	public ruta:string = "http://localhost/cuponesApi/public/";
+	//public ruta:string = "https://cuponesar.com/public/";
+	public userId:any;
   constructor() { }
 }

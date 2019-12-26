@@ -44,7 +44,7 @@
               </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle auto-hide="false">
+          <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null">
               <ion-item [routerDirection]="'root'" [routerLink]="['/perfil']">
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
@@ -54,7 +54,7 @@
           </ion-menu-toggle>
 
 
-          <ion-menu-toggle auto-hide="false">
+          <ion-menu-toggle auto-hide="false" *ngIf="variables.userId == null">
               <ion-item [routerDirection]="'root'" [routerLink]="['/login']">
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
@@ -63,16 +63,7 @@
               </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle auto-hide="false">
-              <ion-item [routerDirection]="'root'">
-                    <ion-icon slot="start"></ion-icon>
-                <ion-label>
-                  Perfil
-                </ion-label>
-              </ion-item>
-          </ion-menu-toggle>
-
-          <ion-menu-toggle auto-hide="false">
+          <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null" (click)="cerrarSesion()">
               <ion-item [routerDirection]="'root'">
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
