@@ -107,11 +107,27 @@
   .header{
     overflow: hidden;
     width: 100%;
+    img{
+      width:100%;
+    }
+  }
+
+  .no-padding{
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
   }
 
   .loginCard{
     max-width: 700px;
     margin: 0 auto;
     margin-top: 10%;
+  }
+
+  .p-0{
+    padding:0!important;
+  }
+
+  .m-0{
+    margin:0!important;
   }
 }

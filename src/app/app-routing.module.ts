@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'saldo',
+    loadChildren: () => import('./saldo/saldo.module').then( m => m.SaldoPageModule)
   }
 ];
 

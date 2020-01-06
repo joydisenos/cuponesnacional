@@ -9,7 +9,13 @@
       </ion-header>
       <ion-content>
 
-        <img src="./assets/shapes.svg" alt="">
+        <ion-item no-padding class="no-padding" lines="none">
+          <img src="./assets/shapes.svg" alt="">
+        </ion-item>
+        
+          <ion-item *ngIf="variables.userId != null" color="tertiary"><strong>Bienvenido {{ variables.user.nombre }}</strong></ion-item>
+          <ion-item *ngIf="variables.userId != null" color="primary">Saldo Disponible: <strong>${{ variables.user.saldo }}</strong></ion-item>
+        
         <ion-segment (ionChange)="cambiarSegmento($event)">
           <ion-segment-button value="categorias" checked>
             Categorias
@@ -53,6 +59,15 @@
               </ion-item>
           </ion-menu-toggle>
 
+          <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null">
+              <ion-item [routerDirection]="'root'" [routerLink]="['/saldo']">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Comprar saldo
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
 
           <ion-menu-toggle auto-hide="false" *ngIf="variables.userId == null">
               <ion-item [routerDirection]="'root'" [routerLink]="['/login']">
@@ -64,7 +79,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null" (click)="cerrarSesion()">
-              <ion-item [routerDirection]="'root'">
+              <ion-item [routerDirection]="'root'" button>
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
                   Cerrar Sesión

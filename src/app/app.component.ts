@@ -44,23 +44,37 @@ export class AppComponent {
   }
 
   verificarUsuario(){
-    //this.storage.remove('user');
-    //this.storage.set('user' , 'string');
       this.storage.get('userId').then((val) => {
-      //console.log(val);
       this.variables.userId = val;
+      if(val != null){
+        //consultar datos de usuario
+        this.datosUsuario();
+      }
     });
+  }
+
+  datosUsuario(){
+    return this.httpClient.get(this.variables.ruta + "api/userconsulta?id=" + this.variables.userId )
+      .subscribe(data => {
+        //se coloca el resultado del usuario a la variable 
+        this.variables.user = data;
+        //console.log(data);
+       
+       }, error => {
+        //si hay error se coloca un objeto explicativo
+        console.log('error');
+      });
   }
 
   cambiarSegmento(nombre){
     this.segmento = nombre.detail.value;
-    //console.log(nombre.detail.value);
   }
 
   cerrarSesion()
   {
     this.storage.remove('userId');
     this.variables.userId = null;
+    this.variables.user = {};
     this.router.navigate(['/home']);
   }
 
