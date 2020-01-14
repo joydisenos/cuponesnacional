@@ -28,11 +28,12 @@ export class LoginPage implements OnInit {
   consultarUsuario(){
   	return this.httpClient.get(this.variables.ruta + "api/userlog?email="+ this.email +"&clave=" + this.clave)
       .subscribe(data => {
-        //se coloca el resultado del usuario a la variable 
+        //se coloca el resultado del usuario a la variable y se guarda en el almacenamiento local 
         this.respuesta = data;
         //console.log(data.id);
         this.storage.set('userId' , this.respuesta.id);
         this.variables.userId = this.respuesta.id;
+        this.variables.user = this.respuesta;
         this.router.navigate(['/home']);
        
        }, error => {

@@ -9,36 +9,90 @@
 
 <ion-content>
 
-	<ion-card>
-  <ion-card-header>
-    <ion-card-title>Bienvenido</ion-card-title>
-  </ion-card-header>
-  
-  <ion-card-content>
-    
     <form>
-    		<ion-item>
-			  <ion-label position="floating">Email</ion-label>
-			  <ion-input type="email" readonly value="{{ user.email }}"></ion-input>
-			</ion-item>
+<ion-grid>
+	<ion-row>
+		<ion-col size="2">
+			<ion-card >
+				
+					<img src="./assets/shapes.svg" alt="">
+			
+			</ion-card>
+		</ion-col>
+		<ion-col>
+			<ion-card>
+			  <ion-card-header color="primary">
+			    <ion-card-title>Datos Personales</ion-card-title>
+			  </ion-card-header>
+			  
+			  <ion-card-content>
+			    
+			    	<ion-grid>
+			    		<ion-row>
+			    			<ion-col>
+			    				<ion-item>
+								  <ion-label position="floating">Nombre</ion-label>
+								  <ion-input type="text" value="{{ user.nombre }}"></ion-input>
+								</ion-item>
+			    			</ion-col>
 
-			<ion-item>
-			  <ion-label position="floating">Nombre</ion-label>
-			  <ion-input type="text" value="{{ user.nombre }}"></ion-input>
-			</ion-item>
+			    			<ion-col>
+			    				<ion-item>
+								  <ion-label position="floating">Apellido</ion-label>
+								  <ion-input type="text" value="{{ user.apellido }}"></ion-input>
+								</ion-item>
+			    			</ion-col>
+			    		</ion-row>
 
-			<ion-item>
-			  <ion-label position="floating">Apellido</ion-label>
-			  <ion-input type="text" value="{{ user.apellido }}"></ion-input>
-			</ion-item>
+			    		<ion-row>
+			    			<ion-col>
+				    			<ion-item>
+								  <ion-label position="floating">DNI</ion-label>
+								  <ion-input type="text" value="{{ user.dni }}"></ion-input>
+								</ion-item>
+				    		</ion-col>
+				    		<ion-col>
+				    			<ion-item>
+								  <ion-label position="floating">Teléfono</ion-label>
+								  <ion-input type="text" value="{{ user.tel }}"></ion-input>
+								</ion-item>
+				    		</ion-col>
+			    		</ion-row>
+			    	</ion-grid>
+			    
+			  </ion-card-content>
+			</ion-card>
+		</ion-col>
+	</ion-row>
+</ion-grid>
 
-			<ion-item>
-			  <ion-label position="floating">Cambiar contraseña</ion-label>
-			  <ion-input type="pessword"></ion-input>
-			</ion-item>
-    </form>
-    
+
+<ion-card>
+	<ion-card-header color="primary">
+    <ion-card-title>Datos de la cuenta</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+  	<ion-grid>
+
+  		<ion-row>
+  			<ion-col>
+  				<ion-item>
+				  <ion-label position="floating">Email</ion-label>
+				  <ion-input type="email" readonly value="{{ user.email }}"></ion-input>
+				</ion-item>
+  			</ion-col>
+  			<ion-col>
+  				<ion-item>
+				  <ion-label position="floating">Cambiar contraseña</ion-label>
+				  <ion-input type="pessword"></ion-input>
+				</ion-item>
+  			</ion-col>
+  		</ion-row>
+  		
+  	</ion-grid>
   </ion-card-content>
 </ion-card>
 
+    </form>
 </ion-content>

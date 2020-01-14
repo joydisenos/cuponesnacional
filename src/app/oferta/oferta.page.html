@@ -9,7 +9,12 @@
 
 <ion-content>
 <div class="img-card">
-	<img src="./assets/shapes.svg" alt=""  />
+	<!--<img src="{{ oferta.fotos }}" alt=""  />-->
+  <ion-slides>
+    <ion-slide *ngFor="let slide of oferta.slide">
+      <img src="{{ slide }}" alt=""  />
+    </ion-slide>
+  </ion-slides>
 	<div class="divisor"></div>
 </div>
 <ion-card>

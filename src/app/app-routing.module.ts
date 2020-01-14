@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'saldo',
     loadChildren: () => import('./saldo/saldo.module').then( m => m.SaldoPageModule)
+  },
+  {
+    path: 'cupones',
+    loadChildren: () => import('./cupones/cupones.module').then( m => m.CuponesPageModule)
   }
 ];
 

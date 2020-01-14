@@ -9,7 +9,7 @@
       </ion-header>
       <ion-content>
 
-        <ion-item no-padding class="no-padding" lines="none">
+        <ion-item class="ion-no-padding no-padding" lines="none">
           <img src="./assets/shapes.svg" alt="">
         </ion-item>
         
@@ -60,10 +60,19 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null">
+              <ion-item [routerDirection]="'root'" [routerLink]="['/cupones']">
+                    <ion-icon slot="start"></ion-icon>
+                <ion-label>
+                  Mis cupones
+                </ion-label>
+              </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false" *ngIf="variables.userId != null">
               <ion-item [routerDirection]="'root'" [routerLink]="['/saldo']">
                     <ion-icon slot="start"></ion-icon>
                 <ion-label>
-                  Comprar saldo
+                  Cargar saldo
                 </ion-label>
               </ion-item>
           </ion-menu-toggle>

@@ -1,9 +1,51 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>saldo</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Cargar saldo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+	<form>
+		<ion-item>
+			<ion-label for="25saldo">$25 de saldo ($2,50 de regalo)</ion-label> <input id="25saldo" type="radio" name="saldo" value="25">
+		</ion-item>
+
+		<ion-item>
+			<ion-label for="50saldo">$50 de saldo ($5 de regalo)</ion-label> <input id="50saldo" type="radio" name="saldo" value="50">
+		</ion-item>
+
+		<ion-item>
+			<ion-label for="100saldo">$100 de saldo ($10 de regalo)</ion-label> <input id="100saldo" type="radio" name="saldo" value="100">
+		</ion-item>
+
+		<ion-item>
+			<ion-label for="200saldo">$200 de saldo ($20 de regalo)</ion-label> <input id="200saldo" type="radio" name="saldo" value="200">
+		</ion-item>
+
+		<ion-item slot="end">
+			<ion-text color="primary">
+				Cantidad:
+			</ion-text>
+		</ion-item>
+
+		<ion-item slot="end">
+			<ion-text color="primary">
+				Total:
+			</ion-text>
+		</ion-item>
+
+		<ion-item slot="end">
+			<ion-text color="primary">
+				Te regalamos:
+			</ion-text>
+		</ion-item>
+
+		<ion-item slot="end">
+			<ion-button color="primary">
+				Comprar
+			</ion-button>
+		</ion-item>
+	</form>
 
 </ion-content>

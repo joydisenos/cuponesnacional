@@ -9,26 +9,28 @@
 
 <ion-content>
 
-  <ion-card>
-  <ion-card-header  *ngIf="carrito != null">
-    <ion-card-title>Productos: </ion-card-title>
-  </ion-card-header>
-  <ion-card-header  *ngIf="carrito == null">
+  <ion-card *ngIf="carrito == null">
+    <ion-card-header  *ngIf="carrito == null">
       <ion-card-title>El carrito esta vacío! <a [routerDirection]="'root'" [routerLink]="['/home']">ver ofertas</a></ion-card-title>
     </ion-card-header>
-  <ion-card-content>
-    <ion-list *ngIf="carrito != null">
-      <ion-item *ngFor="let item of carrito">
-        <div>
-          <h3>{{item.oferta}}</h3>
-          <h6>cantidad: {{ item.cantidad }} precio: ${{ item.cantidad * item.reserva }}</h6>
-        </div>
-      </ion-item>
-    </ion-list>
-
-    
-  </ion-card-content>
 </ion-card>
+
+<div *ngIf="carrito != null">
+  <ion-card *ngFor="let item of carrito">
+    <ion-card-header color="primary">
+           <ion-card-title>{{item.oferta}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        
+        <ion-item lines="none">
+          <div>
+            <h6>cantidad: {{ item.cantidad }} precio: ${{ item.cantidad * item.reserva }}</h6>
+          </div>
+        </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</div>
 
 </ion-content>
 
