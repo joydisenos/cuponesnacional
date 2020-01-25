@@ -52,6 +52,7 @@ export class OfertaPage implements OnInit {
         this.storage.set('carrito' , [{
                 id: this.slug,
                 oferta: this.oferta.titulo,
+                fotos: this.oferta.fotos,
                 reserva: this.oferta.rprecio,
                 cantidad: this.cantidad
               }]);
@@ -60,6 +61,7 @@ export class OfertaPage implements OnInit {
         carrito.push({
         id: this.slug,
         oferta: this.oferta.titulo,
+        fotos: this.oferta.fotos,
         reserva: this.oferta.rprecio,
         cantidad: this.cantidad
       });

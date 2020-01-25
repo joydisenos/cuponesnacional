@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SaldoPage implements OnInit {
 
+	saldo = 25;
+	cantidad = 1;
+
   constructor() { }
 
   ngOnInit() {
