@@ -22,7 +22,7 @@ export class HomePage {
 
   ngOnInit() {
     //se obtiene el parametro de la ruta si existe
-    this.categoria = this.route.snapshot.paramMap.get('categoria');
+    this.categoria = this.route.snapshot.paramMap.get('id');
     console.log(this.categoria);
     this.cargarOfertas();
   }

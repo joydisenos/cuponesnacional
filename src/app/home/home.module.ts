@@ -15,10 +15,6 @@ import { HomePage } from './home.page';
       {
         path: '',
         component: HomePage
-      },
-      {
-        path: ':categoria',
-        component: HomePage
       }
     ])
   ],

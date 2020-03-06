@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
+  --ion-color-primary: #009CDE;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -86,8 +86,10 @@
   }
 
   .img-card{
-    width:100%;
-    position: relative;
+    width:100%;  
+    margin-bottom: -70px;
+    max-width:100%;
+    min-height: 80px;
 
     img{
       width: 100%;
@@ -102,6 +104,11 @@
       height: 15px;
       border-radius: 8px 8px 0 0;
     }
+  }
+
+  .cardSuperpuesta{
+    z-index:100;
+    background: #ffffff !important;
   }
 
   .header{

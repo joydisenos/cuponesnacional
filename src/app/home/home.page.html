@@ -1,19 +1,18 @@
-<ion-header>
-  <ion-toolbar color="primary">
+<ion-header class="headerFixed">
+  <ion-toolbar class="headerFixed">
     <ion-buttons slot="start">
       <ion-menu-button menu="categorias"></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Inicio
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen="true">
 
-  <ion-item class="header ion-no-padding no-padding" lines="none">
-    <img src="./assets/img/banner.jpg" alt="">
-  </ion-item>
+  <div class="imagenPrincipal header ion-no-padding no-padding" style="background: url( './assets/img/banner.jpg' ) no-repeat center center / cover;">
+    <div class="pantalla">
+      <img src="./assets/img/logo.png" alt="" class="logo">
+    </div>
+  </div>
   
   <ion-toolbar color="primary">
 
@@ -38,10 +37,10 @@
           <img src="{{ oferta.fotos }}" alt="" />
           <ion-card-header>
             <ion-card-subtitle>${{ oferta.fprecio }}</ion-card-subtitle>
-            <ion-card-title>{{ oferta.titulo }}</ion-card-title>
+            <ion-card-title color="primary">{{ oferta.empresaNombre }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p>{{ oferta.detalle }}</p>
+            <p>{{ oferta.titulo }}</p>
           </ion-card-content>
         </ion-card>
       </ion-col>

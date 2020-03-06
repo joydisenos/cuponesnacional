@@ -1,4 +1,36 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.welcome-card {
+	--background:#ffffff;
+  img{
+	  max-height: 35vh;
+	  overflow: hidden;
+  }
+}
+
+
+.headerFixed{
+  --background: transparent;
+  position:fixed;
+}
+
+ion-content{
+	padding-top:0px !important;
+}
+
+.imagenPrincipal{
+	min-height:80vh;
+	text-align:center;
+}
+
+.pantalla{
+	min-height:80vh;
+	background:linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+}
+
+.logo{
+	max-width: 150px;
+	padding:20px;
+}
+
+ion-content{
+	--background: #e2edf7;
 }

@@ -3,7 +3,7 @@
   	 <ion-buttons slot="start">
       <ion-menu-button menu="categorias"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Oferta {{oferta.titulo}}</ion-title>
+    <ion-title>Oferta {{ oferta.empresaNombre }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,15 +17,53 @@
   </ion-slides>
 	<div class="divisor"></div>
 </div>
-<ion-card>
+<ion-card class="cardSuperpuesta">
   <ion-card-header>
     <ion-card-subtitle>{{ oferta.detalle }}</ion-card-subtitle>
-    <ion-card-title>{{ oferta.titulo }}</ion-card-title>
+    <ion-card-title color="primary">{{ oferta.titulo }}</ion-card-title>
   </ion-card-header>
-  <ion-card-content>
-    <div class="caracteristicas" [innerHTML]="oferta.caracteristicas"></div>
-  </ion-card-content>
 </ion-card>
+
+<ion-row>
+  <ion-col size="12" size-md="6">
+    <ion-card class="cardSuperpuesta">
+      <ion-card-header>
+        <ion-card-title color="primary">Características</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="caracteristicas" [innerHTML]="oferta.caracteristicas"></div>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+  <ion-col size="12" size-md="6">
+    <ion-card class="cardSuperpuesta">
+      <ion-card-header>
+        <ion-card-title color="primary">Condiciones</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="caracteristicas" [innerHTML]="oferta.condiciones"></div>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row> 
+
+<ion-row>
+  <ion-col size="12">
+    <ion-card class="cardSuperpuesta">
+      <ion-card-header>
+        <ion-card-title color="primary">{{ oferta.empresaNombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div><p>
+          {{ oferta.empresaDireccion }}
+        </p></div>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+
 
 </ion-content>
 
