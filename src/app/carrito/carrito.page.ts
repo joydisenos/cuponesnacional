@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
+import { VariablesService } from '../variables.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -11,7 +14,10 @@ export class CarritoPage implements OnInit {
 	carrito:any;
   total = 0;
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage,
+              public httpClient: HttpClient,
+              private router: Router,
+              public variables: VariablesService) { }
 
   ngOnInit() {
   	this.cargarCarrito();
@@ -35,7 +41,20 @@ export class CarritoPage implements OnInit {
   }
 
   completarCompra(){
-    
+    let options = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    };
+
+    let reservas = JSON.stringify(this.carrito);
+
+    this.httpClient.get(this.variables.ruta + 'api/reservar?items=' + reservas + '&user=' + this.variables.userId)
+     .subscribe(data => {
+       console.log(data);
+       this.eliminarCarrito();
+       this.router.navigate(['/cupones']);
+      });
   }
 
   eliminarCarrito(){

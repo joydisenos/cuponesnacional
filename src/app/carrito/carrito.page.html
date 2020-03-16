@@ -56,7 +56,7 @@
   <ion-toolbar color="primary">
    <ion-buttons slot="end">
     		<ion-button color="primary" fill="solid" shape="round" (click)="eliminarCarrito()">Eliminar carrito</ion-button>
-    		<ion-button color="success" fill="solid" shape="round">Completar compra ${{ total }}</ion-button>
+    		<ion-button color="success" fill="solid" shape="round" (click)="completarCompra()">Completar compra ${{ total }}</ion-button>
     	</ion-buttons>
   </ion-toolbar>
 </ion-footer>
