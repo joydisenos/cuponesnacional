@@ -3,6 +3,8 @@ import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { VariablesService } from '../variables.service';
 import { Router } from '@angular/router';
+import { PagoFormComponent } from '../pago-form/pago-form.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-carrito',
@@ -17,10 +19,18 @@ export class CarritoPage implements OnInit {
   constructor(private storage: Storage,
               public httpClient: HttpClient,
               private router: Router,
-              public variables: VariablesService) { }
+              public variables: VariablesService,
+              public modalController: ModalController) { }
 
   ngOnInit() {
   	this.cargarCarrito();
+  }
+
+  async presentModalPago() {
+    const modal = await this.modalController.create({
+      component: PagoFormComponent
+    });
+    return await modal.present();
   }
 
   cargarCarrito(){
@@ -41,6 +51,10 @@ export class CarritoPage implements OnInit {
   }
 
   completarCompra(){
+
+    this.presentModalPago();
+
+    /*
     let options = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -55,6 +69,7 @@ export class CarritoPage implements OnInit {
        this.eliminarCarrito();
        this.router.navigate(['/cupones']);
       });
+      */
   }
 
   eliminarCarrito(){

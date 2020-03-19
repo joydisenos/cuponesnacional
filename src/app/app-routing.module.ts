@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'cupones',
     loadChildren: () => import('./cupones/cupones.module').then( m => m.CuponesPageModule)
+  },
+  {
+    path: 'pago',
+    loadChildren: () => import('./pago/pago.module').then( m => m.PagoPageModule)
   }
 ];
 

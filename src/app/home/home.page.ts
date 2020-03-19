@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { VariablesService } from '../variables.service';
@@ -16,7 +17,8 @@ export class HomePage {
 
   constructor(private route: ActivatedRoute , 
               public httpClient: HttpClient,
-              public variables: VariablesService) {
+              public variables: VariablesService,
+              public loadingController: LoadingController) {
   	
   }
 
@@ -33,16 +35,28 @@ export class HomePage {
     this.cargarOfertas();
   }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Por favor espere...'
+    });
+    await loading.present();
+  }
+
   cargarOfertas(){
     //obtener ofertas de la api
+    
+    //this.presentLoading();
+    
     return this.httpClient.get(this.variables.ruta + "api/ofertas?limit=" + this.limite + "&categoria=" + this.categoria)
       .subscribe(data => {
         //se asignan las ofertas a la variable
         this.ofertas = data;
+        //this.loadingController.dismiss();
         //console.log(data);
        }, error => {
         //si hay error se crea un array vacio
         this.ofertas = [];
+        //this.loadingController.dismiss();
         //console.log('error');
       });
   }

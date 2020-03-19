@@ -25,20 +25,20 @@
       <ion-item lines="none">
         <ion-grid>
           <ion-row>
-            <ion-col size="2">
+            <ion-col size="12" size-md="2">
               <img src="{{ item.fotos }}" alt="">
             </ion-col>
-            <ion-col>
+            <ion-col size="12" size-md="6">
               <ion-text color="primary">
                 {{item.oferta}}
               </ion-text>
             </ion-col>
-            <ion-col size="2">
+            <ion-col size="6" size-md="2">
               <ion-text>
                 Cantidad: {{ item.cantidad }}
               </ion-text>
             </ion-col>
-            <ion-col size="2">
+            <ion-col size="6" size-md="2">
               <ion-text>
                 Precio: ${{ item.cantidad * item.reserva }}
               </ion-text>
